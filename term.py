@@ -402,7 +402,7 @@ async def register_and_get_promo(is_last_instance=False):
     log.warning("⚠️ Please Solve Captcha Manually!")
     send_notificationn("Ultimate", '⚠️ Once captcha is done and account is created, press ENTER to verify email')
     keyboard.wait('enter')
-    verify_url = verify(inbox_id)
+    verify_url = verify(inbox_id, inbox_token)
     log.info("✅ Email Verification link fetched!")
     pyautogui.hotkey('ctrl', 't')
     pyautogui.write(verify_url)
@@ -533,3 +533,4 @@ if __name__ == "__main__":
     splash.start()
     QTimer.singleShot(2500, lambda: splash.fadeOut(start_message_splash))
     app.exec()
+
